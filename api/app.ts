@@ -11,6 +11,7 @@ import encryptionRoutes from './routes/encryption.js'
 import logRoutes from './routes/logs.js'
 import clientRoutes from './routes/clients.js'
 import eventRoutes from './routes/events.js'
+import logAnalysisRoutes from './routes/logAnalysis.js'
 
 dotenv.config()
 
@@ -27,6 +28,7 @@ app.use('/api/encryption', encryptionRoutes)
 app.use('/api/logs', logRoutes)
 app.use('/api/clients', clientRoutes)
 app.use('/api/events', eventRoutes)
+app.use('/api/analysis', logAnalysisRoutes)
 
 app.use(
   '/api/health',

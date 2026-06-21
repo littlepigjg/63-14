@@ -9,6 +9,7 @@ interface UseSSEOptions {
   onMessage?: (event: SSEEvent) => void;
   onConfigChanged?: (event: SSEEvent) => void;
   onRefresh?: (event: SSEEvent) => void;
+  onAlert?: (event: SSEEvent) => void;
   onConnected?: () => void;
   enabled?: boolean;
   onVisibilityChange?: (isVisible: boolean) => void;
@@ -23,6 +24,7 @@ export function useSSE(options: UseSSEOptions = {}) {
     onMessage,
     onConfigChanged,
     onRefresh,
+    onAlert,
     onConnected,
     enabled = true,
     onVisibilityChange,
@@ -47,9 +49,11 @@ export function useSSE(options: UseSSEOptions = {}) {
         onConfigChanged?.(event);
       } else if (event.type === 'refresh') {
         onRefresh?.(event);
+      } else if (event.type === 'alert') {
+        onAlert?.(event);
       }
     },
-    [enabled, filter, onMessage, onConfigChanged, onRefresh, onConnected],
+    [enabled, filter, onMessage, onConfigChanged, onRefresh, onAlert, onConnected],
   );
 
   useEffect(() => {

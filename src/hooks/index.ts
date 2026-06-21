@@ -6,5 +6,6 @@ export { useConfigs } from './useConfigs';
 export { useLogs } from './useLogs';
 export { useClients } from './useClients';
 export { useEncryption } from './useEncryption';
+export { useLogAnalysis } from './useLogAnalysis';
 export { useDocumentVisibility } from './useDocumentVisibility';
 export { sseManager } from './sseManager';

@@ -1,3 +1,5 @@
+import type { AlertEvent } from '../../shared/types';
+
 export interface SSEEvent {
   type: string;
   project?: string;
@@ -5,6 +7,7 @@ export interface SSEEvent {
   changedKeys?: string[];
   targetClient?: string;
   timestamp: string;
+  event?: AlertEvent;
   [key: string]: unknown;
 }
 
